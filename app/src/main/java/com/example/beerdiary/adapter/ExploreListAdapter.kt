@@ -10,9 +10,11 @@ import com.example.beerdiary.data.Beer
 class ExploreListViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         RecyclerView.ViewHolder(inflater.inflate(R.layout.explore_item, parent, false)) {
     private val beerNameView: TextView
+    private val beerCalorieView: TextView
 
     init {
         beerNameView = itemView.findViewById(R.id.beer_name)
+        beerCalorieView = itemView.findViewById(R.id.beer_calorie)
     }
 
     fun bind(beer: Beer, clickListener: (Beer) -> Unit) {
@@ -20,6 +22,7 @@ class ExploreListViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             clickListener(beer)
         }
         beerNameView?.text = beer.product_name
+        beerCalorieView?.text = beer.nutriments.energy_value?.toString() + " calories"
     }
 }
 

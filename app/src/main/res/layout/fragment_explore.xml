@@ -58,7 +58,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/explore_recycler"
         android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="565dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </LinearLayout>
