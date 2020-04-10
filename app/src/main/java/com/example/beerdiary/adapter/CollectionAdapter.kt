@@ -20,8 +20,7 @@ class CollectionViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     }
 
     fun bind(beer: Beer) {
-        nameView.text = beer.name
-        ratingView.text = beer.rating.toString()
+        nameView.text = beer.product_name
     }
 }
 

@@ -33,6 +33,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //kotlinx coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.1"
+
     //Picasso library for api images
     implementation 'com.squareup.picasso:picasso:2.71828'
 
@@ -47,6 +50,16 @@ dependencies {
 
     // UI
     implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    //android lifecycle
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+
+    //Moshi for type conversion
+    implementation 'com.squareup.retrofit2:converter-moshi:2.6.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    //recycler view
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
 
     // Testing
     testImplementation 'junit:junit:4.12'

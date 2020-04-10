@@ -1,6 +1,10 @@
 package com.example.beerdiary.data
 
 data class Beer(
-    val name: String,
-    val rating: Int
+    val product_name: String,
+    val image_front_url: String
+)
+
+data class BeerPayload(
+    val products : List<Beer>
 )
