@@ -95,16 +95,7 @@
             android:text="Rating"
             android:textSize="24sp"
             />
-        <RatingBar
-            android:id="@+id/ratingBar7"
-            style="@android:style/Widget.Material.RatingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:isIndicator="false"
-            android:numStars="5"
-            android:rating="1"
-            android:stepSize="0.5" />
+
 
     </LinearLayout>
 
