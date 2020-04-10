@@ -5,7 +5,10 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.beerdiary.fragments.AddItemFragment
 import com.example.beerdiary.fragments.CollectionFragment
+import com.example.beerdiary.fragments.ExploreFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
