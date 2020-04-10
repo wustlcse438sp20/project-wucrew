@@ -4,9 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.annotation.MainThread
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.beerdiary.R
+import com.example.beerdiary.adapter.CollectionAdapter
 import com.example.beerdiary.data.Beer
+import kotlinx.android.synthetic.main.fragment_collection.*
 
 class CollectionFragment: Fragment(){
     private var beerList: ArrayList<Beer> = ArrayList()
@@ -17,6 +22,12 @@ class CollectionFragment: Fragment(){
 
     override fun onStart() {
         super.onStart()
+
+        val adapter = CollectionAdapter(beerList)
+        collection_recycler.adapter = adapter
+        collection_recycler.layoutManager = LinearLayoutManager(this.context)
+
+
     }
 
 }
