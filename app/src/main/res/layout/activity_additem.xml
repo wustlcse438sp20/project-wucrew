@@ -19,14 +19,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name"
-            android:textSize="24sp"
+            android:textSize="18sp"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Beer Type"
-            android:textSize="24sp"
-            android:layout_marginLeft="150dp"/>
+            android:textSize="18sp"
+            android:layout_marginLeft="190dp"/>
 
     </LinearLayout>
 
@@ -60,7 +60,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name_beer_layout"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
         <TextView
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:width="150dp"
             android:text="Description"
-            android:textSize="24sp"/>
+            android:textSize="18sp"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/description_layout"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="48dp"
         >
 
@@ -93,8 +93,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rating"
-            android:textSize="24sp"
+            android:textSize="18sp"
             />
+
+        <RatingBar
+            android:id="@+id/rBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stepSize="0.5"
+            android:theme="@style/Widget.AppCompat.RatingBar"
+            android:background="@color/white"
+            android:numStars="5"/>
 
 
     </LinearLayout>
@@ -106,21 +115,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rating_layout"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Manufacturer"
-            android:textSize="24sp"
+            android:textSize="18sp"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Country"
-            android:textSize="24sp"
-            android:layout_marginLeft="100dp"/>
+            android:textSize="18sp"
+            android:layout_marginLeft="150dp"/>
 
     </LinearLayout>
 
@@ -155,7 +164,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <Button
             android:layout_width="wrap_content"
