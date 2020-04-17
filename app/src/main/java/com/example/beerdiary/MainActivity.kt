@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         viewpager_main.adapter = fragmentAdapter
 
         tabs_main.setupWithViewPager(viewpager_main)
+        viewpager_main.setCurrentItem(1)    //sets default tab to the center tab 
     }
 }
 
