@@ -18,8 +18,11 @@ class CollectionViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         nameView = itemView.findViewById(R.id.beer_name)
         ratingView = itemView.findViewById(R.id.beer_rating)
     }
-
+    //add ", clickListener: (imagebuttonview) -> Unit"
     fun bind(beer: Beer) {
+        /*beerNameView.setOnClickListener {
+            clickListener(beer)
+        }*/
         nameView.text = beer.product_name
     }
 }
