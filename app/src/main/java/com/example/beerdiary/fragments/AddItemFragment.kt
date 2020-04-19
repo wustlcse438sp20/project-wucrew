@@ -34,8 +34,10 @@ class AddItemFragment: Fragment(){
             } else{
                 //params: AddBeerItem(name: String, type: String, desc: String,
                 //rating: Float, manufacturer: String, country: String)
+                //FIXME: error -> app crashes here
                 val b = AddBeerItem(name_input.text.toString(), type_input.text.toString(), description_input.text.toString(),
                     beer_rating.text.toString().toFloat(), manufacturer_input.text.toString(), country_input.text.toString())
+
 
                 beerViewModel.insert(b)
 
