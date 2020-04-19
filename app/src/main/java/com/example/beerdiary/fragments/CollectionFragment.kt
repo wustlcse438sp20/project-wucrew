@@ -18,7 +18,7 @@ import com.example.beerdiary.db.AddBeerItem
 import kotlinx.android.synthetic.main.fragment_collection.*
 
 class CollectionFragment: Fragment(){
-    private var beerList: ArrayList<AddBeerItem> = ArrayList()
+    private var addBeerList: ArrayList<AddBeerItem> = ArrayList()
     private lateinit var beerViewModel: BeerViewModel
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_collection, container, false)
@@ -29,13 +29,13 @@ class CollectionFragment: Fragment(){
 
         beerViewModel = ViewModelProvider(this).get(BeerViewModel::class.java)
 
-        val adapter = CollectionAdapter(beerList)
+        val adapter = CollectionAdapter(addBeerList)
         collection_recycler.adapter = adapter
         collection_recycler.layoutManager = LinearLayoutManager(this.context)
 
         beerViewModel.addBeerList.observe(this, Observer { beers ->
-            beerList.clear()
-            beerList.addAll(beers)
+            addBeerList.clear()
+            addBeerList.addAll(beers)
             adapter.notifyDataSetChanged()
         })
     }
