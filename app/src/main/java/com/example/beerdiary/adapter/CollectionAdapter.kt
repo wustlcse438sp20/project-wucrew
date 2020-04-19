@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.beerdiary.R
 import com.example.beerdiary.data.Beer
+import com.example.beerdiary.db.AddBeerItem
 
 //define the binding for the view holder
 class CollectionViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
@@ -19,24 +20,24 @@ class CollectionViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         ratingView = itemView.findViewById(R.id.beer_rating)
     }
     //add ", clickListener: (imagebuttonview) -> Unit"
-    fun bind(beer: Beer) {
+    fun bind(beer: AddBeerItem) {
         /*beerNameView.setOnClickListener {
             clickListener(beer)
         }*/
-        nameView.text = beer.product_name
+        nameView.text = beer.name
     }
 }
 
 
 //define the adapter for the recycler view
-class CollectionAdapter(private val list: ArrayList<Beer>) : RecyclerView.Adapter<CollectionViewHolder>() {
+class CollectionAdapter(private val list: ArrayList<AddBeerItem>) : RecyclerView.Adapter<CollectionViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectionViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return CollectionViewHolder(inflater, parent)
     }
 
     override fun onBindViewHolder(holder: CollectionViewHolder, position: Int) {
-        val user: Beer = list[position]
+        val user: AddBeerItem = list[position]
         holder.bind(user)
     }
 

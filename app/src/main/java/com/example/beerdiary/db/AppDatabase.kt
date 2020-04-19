@@ -4,9 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.beerdiary.data.Beer
 
-@Database(entities = arrayOf(Beer::class), version = 1)
+@Database(entities = arrayOf(AddBeerItem::class), version = 1)
 abstract class AppDatabase: RoomDatabase(){
     abstract fun addBeerDao(): AddBeerItemDao
 

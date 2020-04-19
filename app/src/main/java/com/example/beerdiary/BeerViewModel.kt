@@ -10,14 +10,17 @@ import com.example.beerdiary.db.AppDatabase
 import com.example.beerdiary.network.BeerRepository
 
 class BeerViewModel(application: Application) : AndroidViewModel(application) {
-    var beerList: MutableLiveData<List<Beer>> = MutableLiveData()
-    //private val beerRepository: BeerRepository = BeerRepository() -> this is the api repository
+    var beerList: MutableLiveData<List<Beer>> = MutableLiveData()   //for api
+    var addBeerList: MutableLiveData<List<AddBeerItem>> = MutableLiveData() //for database
+
+    private val beerRepository: BeerRepository = BeerRepository() //-> this is the api repository
+
     private val addBeerRepository: AddBeerRepository = AddBeerRepository(
         AppDatabase.getDatabase(application).addBeerDao())  //-> this is the local memory SQLite repository
 
-    /*fun getBeer() {
+    fun getBeer() {
         beerRepository.getBeer(beerList)
-    }*/
+    }
     //function that sends a beer item from AddItemFragment() to CollectionFragment() stored in AppDatabase()
     fun insert(beer: AddBeerItem){
         addBeerRepository.insert(beer)

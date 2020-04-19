@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Beers")
+@Entity(tableName = "beers")
 data class AddBeerItem(
     @ColumnInfo(name = "name")
     val name : String,
@@ -18,8 +18,7 @@ data class AddBeerItem(
     val manufacturer : String,
     @ColumnInfo(name = "country")
     val country : String
-)
-{
+){
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
 }
