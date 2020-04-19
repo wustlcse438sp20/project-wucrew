@@ -17,10 +17,12 @@ import kotlinx.android.synthetic.main.collection_beer_item.*
 
 class AddItemFragment: Fragment(){
 
-    //val rBar = findViewById<RatingBar>(R.id.rBar)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.activity_additem, container, false)
+        // rbar.stePsize = 3
+        val rBar = R.id.rBar
+
     }
 
     override fun onStart() {
@@ -28,6 +30,7 @@ class AddItemFragment: Fragment(){
 
         val beerViewModel = ViewModelProvider(this).get(BeerViewModel::class.java)
         add_btn.setOnClickListener {
+            val rating = rBar.getRating()
             if(name_input.text.toString()==""){
                 val toast = Toast.makeText(this.context, "Required fields missing", Toast.LENGTH_LONG)
                 toast.show()
@@ -36,7 +39,7 @@ class AddItemFragment: Fragment(){
                 //rating: Float, manufacturer: String, country: String)
                 //FIXME: error -> app crashes here
                 val b = AddBeerItem(name_input.text.toString(), type_input.text.toString(), description_input.text.toString(),
-                    beer_rating.text.toString().toFloat(), manufacturer_input.text.toString(), country_input.text.toString())
+                    rating, manufacturer_input.text.toString(), country_input.text.toString())
 
 
                 beerViewModel.insert(b)
