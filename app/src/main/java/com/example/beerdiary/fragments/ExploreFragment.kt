@@ -1,5 +1,6 @@
 package com.example.beerdiary.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.beerdiary.BeerViewModel
+import com.example.beerdiary.GetDescription
 import com.example.beerdiary.R
 import com.example.beerdiary.adapter.ExploreListAdapter
 import com.example.beerdiary.data.Beer
@@ -46,6 +48,10 @@ class ExploreFragment: Fragment() {
     }
 
     private fun beerItemClicked(beer: Beer) {
-
+        val descriptionIntent = Intent(this.context, GetDescription::class.java)
+        descriptionIntent.putExtra("name", beer.product_name)
+        descriptionIntent.putExtra("calories", beer.nutriments.energy_value.toString())
+        descriptionIntent.putExtra("photo_url", beer.image_front_url)
+        startActivityForResult(descriptionIntent, 1)
     }
 }
