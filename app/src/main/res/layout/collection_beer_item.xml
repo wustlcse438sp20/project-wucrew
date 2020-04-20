@@ -1,31 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/collection_beer_item_container"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
         android:id="@+id/beer_name"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="beer name"
+        android:text="name"
+        android:textSize="22dp"
+        android:layout_marginLeft="6dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
     <TextView
         android:id="@+id/beer_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="beer rating"/>
+        android:textSize="22dp"
+        android:text="rating"
+        app:layout_constraintLeft_toRightOf="@+id/beer_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginRight="12dp"/>
     <TextView
         android:id="@+id/beer_quantity"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textSize="22dp"
+        app:layout_constraintLeft_toRightOf="@+id/beer_rating"
+        app:layout_constraintRight_toLeftOf="@+id/button_more"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <ImageButton
         android:id="@+id/button_more"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/more"/>
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:src="@drawable/more"
+        app:layout_constraintRight_toLeftOf="@+id/button_less"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginRight="8dp"/>
+
     <ImageButton
         android:id="@+id/button_less"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/minus"/>
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:src="@drawable/minus"
+        app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintRight_toLeftOf="@+id/trashcan"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="8dp"/>
+    <ImageButton
+        android:id="@+id/trashcan"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:src="@drawable/trash"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="18dp"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

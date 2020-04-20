@@ -8,35 +8,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-
         <RadioGroup
+            android:id="@+id/radiogroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:checkedButton="@id/name_sort">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sort By: "/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name"/>
+                android:text="Name"
+                android:layout_marginLeft="6dp"
+                />
             <RadioButton
+                android:id="@+id/name_sort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Highest Rating"/>
+                android:text="High"/>
             <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/high_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Low"/>
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/low_sort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lowest Rating"/>
+                android:text="Date"/>
             <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/date_sort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

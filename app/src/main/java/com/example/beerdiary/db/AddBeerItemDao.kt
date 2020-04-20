@@ -13,4 +13,10 @@ interface AddBeerItemDao {
 
     @Insert
     fun insert(beer: AddBeerItem)
+
+    @Query("DELETE FROM beers WHERE beers.id = :id")
+    fun delete(id: Int)
+
+    @Query("DELETE FROM beers")
+    fun deleteAll()
 }
