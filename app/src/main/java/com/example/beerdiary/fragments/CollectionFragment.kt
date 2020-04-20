@@ -46,12 +46,29 @@ class CollectionFragment: Fragment(){
             adapter.notifyDataSetChanged()
         })
 
-        println("!!!!!!!!!!!!!!!!!!!!!!!!")
-        println(radiogroup.checkedRadioButtonId)
-
-        /*when (radiogroup.checkedRadioButtonId) {
-            name_sort.id -> Collections.sort(beerViewModel.addBeerList)
-        }*/
+        //FIXME: does not sort the list
+        radiogroup.setOnCheckedChangeListener { radioGroup, id ->
+            when(id){
+                name_sort.id -> {beerViewModel.sortNameAsc()
+                    //adapter.notifyDataSetChanged()
+                    println("name sort")
+                }
+                high_sort.id -> {beerViewModel.sortRatingAsc()
+                    //adapter.notifyDataSetChanged()
+                    println("high sort")
+                }
+                low_sort.id -> {
+                    beerViewModel.sortRatingDesc()
+                    //adapter.notifyDataSetChanged()
+                    println("low sort")
+                }
+                date_sort.id -> {
+                    //beerViewModel.sortRatingDesc()
+                    //adapter.notifyDataSetChanged()
+                    println("date sort")
+                }
+            }
+        }
     }
     private fun beerItemClicked(beer: AddBeerItem) {
         println("beer item clicked")

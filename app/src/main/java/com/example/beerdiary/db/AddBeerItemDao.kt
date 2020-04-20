@@ -19,4 +19,13 @@ interface AddBeerItemDao {
 
     @Query("DELETE FROM beers")
     fun deleteAll()
+
+    @Query("SELECT * FROM beers ORDER BY name ASC")
+    fun sortNameAsc(): LiveData<List<AddBeerItem>>
+
+    @Query("SELECT * FROM beers ORDER BY rating ASC")
+    fun sortRatingAsc(): LiveData<List<AddBeerItem>>
+
+    @Query("SELECT * FROM beers ORDER BY rating DESC")
+    fun sortRatingDesc(): LiveData<List<AddBeerItem>>
 }

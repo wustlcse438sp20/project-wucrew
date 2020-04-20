@@ -38,4 +38,14 @@ class BeerViewModel(application: Application) : AndroidViewModel(application) {
     fun deleteAll(){
         addBeerRepository.deleteAll()
     }
+
+    fun sortNameAsc(){
+        addBeerRepository.sortNameAsc()
+    }
+    fun sortRatingAsc(){
+        addBeerRepository.sortRatingAsc()
+    }
+    fun sortRatingDesc(){
+        addBeerRepository.sortRatingDesc()
+    }
 }

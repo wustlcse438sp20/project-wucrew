@@ -23,4 +23,19 @@ class AddBeerRepository(private val addBeerDao: AddBeerItemDao) {
             addBeerDao.deleteAll()
         }
     }
+    fun sortNameAsc() {
+        CoroutineScope(Dispatchers.IO).launch {
+            addBeerDao.sortNameAsc()
+        }
+    }
+    fun sortRatingAsc(){
+        CoroutineScope(Dispatchers.IO).launch {
+            addBeerDao.sortRatingAsc()
+        }
+    }
+    fun sortRatingDesc(){
+        CoroutineScope(Dispatchers.IO).launch {
+            addBeerDao.sortRatingDesc()
+        }
+    }
 }
