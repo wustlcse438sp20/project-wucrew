@@ -32,5 +32,5 @@ interface AddBeerItemDao {
     @Query("SELECT * FROM beers ORDER BY rating DESC")
     fun sortRatingDesc(): LiveData<List<AddBeerItem>>
 
-
+    
 }

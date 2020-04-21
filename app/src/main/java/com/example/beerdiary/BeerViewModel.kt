@@ -34,14 +34,12 @@ class BeerViewModel(application: Application) : AndroidViewModel(application) {
         var beer: AddBeerItem? = addBeerRepository.search(id)
         return beer
     }
-    fun delete(id: Int){
+    fun delete(id: Int) {
         addBeerRepository.delete(id)
     }
-
     fun deleteAll(){
         addBeerRepository.deleteAll()
     }
-
     fun sortNameAsc(){
         addBeerRepository.sortNameAsc()
     }
