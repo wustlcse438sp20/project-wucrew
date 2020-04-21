@@ -30,7 +30,10 @@ class BeerViewModel(application: Application) : AndroidViewModel(application) {
     fun insert(beer: AddBeerItem){
         addBeerRepository.insert(beer)
     }
-
+    fun search(id: Int): AddBeerItem?{
+        var beer: AddBeerItem? = addBeerRepository.search(id)
+        return beer
+    }
     fun delete(id: Int){
         addBeerRepository.delete(id)
     }

@@ -11,6 +11,9 @@ interface AddBeerItemDao {
     @Query("SELECT * FROM beers")
     fun getBeers(): LiveData<List<AddBeerItem>>
 
+    @Query("SELECT * FROM beers WHERE beers.id = :id")
+    fun search(id: Int): AddBeerItem
+
     @Insert
     fun insert(beer: AddBeerItem)
 
@@ -28,4 +31,6 @@ interface AddBeerItemDao {
 
     @Query("SELECT * FROM beers ORDER BY rating DESC")
     fun sortRatingDesc(): LiveData<List<AddBeerItem>>
+
+
 }

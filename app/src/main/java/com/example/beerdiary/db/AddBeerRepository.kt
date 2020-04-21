@@ -13,6 +13,14 @@ class AddBeerRepository(private val addBeerDao: AddBeerItemDao) {
             addBeerDao.insert(beer)
         }
     }
+    fun search(id: Int): AddBeerItem? {
+        lateinit var beer: AddBeerItem
+        CoroutineScope(Dispatchers.IO).launch {
+            beer = addBeerDao.search(id)
+        }
+
+        return beer
+    }
     fun delete(id: Int) {
         CoroutineScope(Dispatchers.IO).launch {
             addBeerDao.delete(id)

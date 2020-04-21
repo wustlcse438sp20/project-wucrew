@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.beerdiary.BeerViewModel
+import com.example.beerdiary.EditRating
 import com.example.beerdiary.GetDescription
 import com.example.beerdiary.R
 import com.example.beerdiary.adapter.CollectionAdapter
@@ -62,16 +63,12 @@ class CollectionFragment: Fragment(){
                     //adapter.notifyDataSetChanged()
                     println("low sort")
                 }
-                date_sort.id -> {
-                    //beerViewModel.sortRatingDesc()
-                    //adapter.notifyDataSetChanged()
-                    println("date sort")
-                }
             }
         }
     }
     private fun beerItemClicked(beer: AddBeerItem) {
-        println("beer item clicked")
-        println(beer.id)
+        val intent = Intent(this.context, EditRating::class.java)
+        intent.putExtra("id",beer.id)
+        startActivity(intent)
     }
 }
