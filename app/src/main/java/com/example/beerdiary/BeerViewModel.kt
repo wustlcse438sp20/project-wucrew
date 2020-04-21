@@ -40,13 +40,13 @@ class BeerViewModel(application: Application) : AndroidViewModel(application) {
     fun deleteAll(){
         addBeerRepository.deleteAll()
     }
-    fun sortNameAsc(){
-        addBeerRepository.sortNameAsc()
+    fun sortNameAsc() : LiveData<List<AddBeerItem>>{
+        return addBeerRepository.sortNameAsc()
     }
-    fun sortRatingAsc(){
-        addBeerRepository.sortRatingAsc()
+    fun sortRatingAsc() : LiveData<List<AddBeerItem>>{
+        return addBeerRepository.sortRatingAsc()
     }
-    fun sortRatingDesc(){
-        addBeerRepository.sortRatingDesc()
+    fun sortRatingDesc() : LiveData<List<AddBeerItem>>{
+        return addBeerRepository.sortRatingDesc()
     }
 }

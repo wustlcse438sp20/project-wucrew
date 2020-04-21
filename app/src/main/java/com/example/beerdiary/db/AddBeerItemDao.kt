@@ -26,10 +26,10 @@ interface AddBeerItemDao {
     @Query("SELECT * FROM beers ORDER BY name ASC")
     fun sortNameAsc(): LiveData<List<AddBeerItem>>
 
-    @Query("SELECT * FROM beers ORDER BY rating ASC")
+    @Query("SELECT * FROM beers ORDER BY rating DESC")
     fun sortRatingAsc(): LiveData<List<AddBeerItem>>
 
-    @Query("SELECT * FROM beers ORDER BY rating DESC")
+    @Query("SELECT * FROM beers ORDER BY rating ASC")
     fun sortRatingDesc(): LiveData<List<AddBeerItem>>
 
     

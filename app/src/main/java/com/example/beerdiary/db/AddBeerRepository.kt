@@ -30,19 +30,22 @@ class AddBeerRepository(private val addBeerDao: AddBeerItemDao) {
             addBeerDao.deleteAll()
         }
     }
-    fun sortNameAsc() {
-        CoroutineScope(Dispatchers.IO).launch {
-            addBeerDao.sortNameAsc()
-        }
+    fun sortNameAsc(): LiveData<List<AddBeerItem>> {
+//        CoroutineScope(Dispatchers.IO).launch {
+//            addBeerDao.sortNameAsc()
+//        }
+        return addBeerDao.sortNameAsc()
     }
-    fun sortRatingAsc(){
-        CoroutineScope(Dispatchers.IO).launch {
-            addBeerDao.sortRatingAsc()
-        }
+    fun sortRatingAsc(): LiveData<List<AddBeerItem>> {
+//        CoroutineScope(Dispatchers.IO).launch {
+//            addBeerDao.sortRatingAsc()
+//        }
+        return addBeerDao.sortRatingAsc()
     }
-    fun sortRatingDesc(){
-        CoroutineScope(Dispatchers.IO).launch {
-            addBeerDao.sortRatingDesc()
-        }
+    fun sortRatingDesc(): LiveData<List<AddBeerItem>> {
+//        CoroutineScope(Dispatchers.IO).launch {
+//            addBeerDao.sortRatingDesc()
+//        }
+        return addBeerDao.sortRatingDesc()
     }
 }
