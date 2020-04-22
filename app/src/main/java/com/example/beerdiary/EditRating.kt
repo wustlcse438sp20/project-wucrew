@@ -41,12 +41,14 @@ class EditRating : AppCompatActivity(){
         }
         edit_save.setOnClickListener {
             var newBeer = AddBeerItem(edit_name.text.toString(), edit_type.text.toString(), edit_description.text.toString(),
-                edit_rBar.rating, edit_m.text.toString(), edit_c.text.toString())
+                edit_rBar.rating, edit_m.text.toString(), edit_c.text.toString(), beer!!.quantity)
             if(beer==null){
                 beerViewModel.insert(newBeer)
             }else{
-                beerViewModel.delete(beer.id)
-                beerViewModel.insert(newBeer)
+                //beerViewModel.delete(beer.id)
+                //beerViewModel.insert(newBeer)
+                beer.rating = edit_rBar.rating
+                beerViewModel.updateItem(beer)
             }
 
             val toast = Toast.makeText(this, "Changes saved", Toast.LENGTH_SHORT)

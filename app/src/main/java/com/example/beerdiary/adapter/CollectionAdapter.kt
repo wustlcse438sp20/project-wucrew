@@ -37,12 +37,17 @@ class CollectionViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         trashcan.setOnClickListener { vm.delete(beer.id)}
         nameView.text = beer.name
         ratingView.text = beer.rating.toString()
+        quantityView.text = beer.quantity.toString()
         more.setOnClickListener {
             quantityView.text = (quantityView.text.toString().toInt() + 1).toString()
+            beer.quantity = quantityView.text.toString().toInt()
+            vm.updateItem(beer)
         }
         less.setOnClickListener {
             if(quantityView.text.toString().toInt()>1){
                 quantityView.text = (quantityView.text.toString().toInt() - 1).toString()
+                beer.quantity = quantityView.text.toString().toInt()
+                vm.updateItem(beer)
             }
         }
     }

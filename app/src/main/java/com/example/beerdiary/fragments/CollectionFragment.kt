@@ -47,7 +47,6 @@ class CollectionFragment: Fragment(){
             adapter.notifyDataSetChanged()
         })
 
-        //FIXME: does not sort the list
         radiogroup.setOnCheckedChangeListener { radioGroup, id ->
             when(id){
                 name_sort.id -> {

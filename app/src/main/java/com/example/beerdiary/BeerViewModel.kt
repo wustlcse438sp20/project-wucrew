@@ -53,4 +53,7 @@ class BeerViewModel(application: Application) : AndroidViewModel(application) {
     fun sortRatingDesc() : LiveData<List<AddBeerItem>>{
         return addBeerRepository.sortRatingDesc()
     }
+    fun updateItem(beer: AddBeerItem){
+        addBeerRepository.updateItem(beer)
+    }
 }

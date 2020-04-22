@@ -13,11 +13,13 @@ data class AddBeerItem(
     @ColumnInfo(name = "description")
     val description : String,
     @ColumnInfo(name = "rating")
-    val rating : Float,
+    var rating : Float,
     @ColumnInfo(name = "manufacturer")
     val manufacturer : String,
     @ColumnInfo(name = "country")
-    val country : String
+    val country : String,
+    @ColumnInfo(name = "quantity")
+    var quantity : Int
 ){
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

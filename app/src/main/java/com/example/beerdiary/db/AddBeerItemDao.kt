@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy.REPLACE
+import androidx.room.Update
 
 @Dao
 interface AddBeerItemDao {
@@ -32,5 +34,6 @@ interface AddBeerItemDao {
     @Query("SELECT * FROM beers ORDER BY rating ASC")
     fun sortRatingDesc(): LiveData<List<AddBeerItem>>
 
-    
+    @Update(onConflict = REPLACE)
+    fun updateItem(beer: AddBeerItem)
 }

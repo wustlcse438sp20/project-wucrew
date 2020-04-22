@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">BeerDiary</string>
+    <string name="collection_item_name">Name</string>
+    <string name="collection_item_rating">Rating</string>
+    <string name="collection_item_quantity">1</string>
+
+    <string name="edit_name">Name</string>
+    <string name="edit_type">Beer Type</string>
+    <string name="edit_desc">Description</string>
+    <string name="edit_rating">Rating</string>
+    <string name="edit_m">Manufacturer</string>
+    <string name="edit_c">Country</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_save">Save</string>
 </resources>

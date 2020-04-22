@@ -38,7 +38,7 @@ class AddItemFragment: Fragment(){
                 //params: AddBeerItem(name: String, type: String, desc: String,
                 //rating: Float, manufacturer: String, country: String)
                 val b = AddBeerItem(name_input.text.toString(), type_input.text.toString(), description_input.text.toString(),
-                    rating, manufacturer_input.text.toString(), country_input.text.toString())
+                    rating, manufacturer_input.text.toString(), country_input.text.toString(), 1)
 
 
                 beerViewModel.insert(b)

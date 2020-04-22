@@ -48,4 +48,9 @@ class AddBeerRepository(private val addBeerDao: AddBeerItemDao) {
 //        }
         return addBeerDao.sortRatingDesc()
     }
+    fun updateItem(beer: AddBeerItem){
+        CoroutineScope(Dispatchers.IO).launch {
+            addBeerDao.updateItem(beer)
+        }
+    }
 }

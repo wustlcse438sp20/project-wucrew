@@ -10,46 +10,54 @@
         android:orientation="horizontal">
         <RadioGroup
             android:id="@+id/radiogroup"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:checkedButton="@id/name_sort">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:text="@string/collection_item_name"
                 android:layout_marginLeft="6dp"
+                android:textSize="16dp"
                 />
             <RadioButton
                 android:id="@+id/name_sort"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginRight="122dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Highest Rating"
-                android:layout_marginLeft="22dp"/>
+                android:text="@string/collection_item_rating"
+                android:textSize="16dp"/>
+            <ImageView
+                android:layout_width="21dp"
+                android:layout_height="22dp"
+                android:src="@drawable/arrowup"
+                android:layout_marginTop="5dp"/>
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/high_sort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lowest Rating"
-                android:layout_marginLeft="22dp"/>
+            <ImageView
+                android:layout_width="21dp"
+                android:layout_height="22dp"
+                android:src="@drawable/arrowdown"
+                android:layout_marginTop="5dp"/>
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/low_sort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
         </RadioGroup>
 
 
     </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/collection_recycler"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_height="565dp"/>
