@@ -59,6 +59,30 @@ class ExploreFragment: Fragment() {
             }
             override fun onTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
         })
+
+        radio_group.setOnCheckedChangeListener { radio_group, id ->
+            when (id) {
+                all.id -> {
+                   viewModel.getBeer()
+                }
+
+                wheat.id -> {
+                    viewModel.getWheatBeers()
+                }
+
+                IPA.id -> {
+                    viewModel.getIPA()
+                }
+
+                lager.id -> {
+                    viewModel.getLagers()
+                }
+
+                stout.id -> {
+                    viewModel.getStouts()
+                }
+            }
+        }
     }
 
     private fun beerItemClicked(beer: Beer) {
