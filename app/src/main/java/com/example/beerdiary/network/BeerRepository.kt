@@ -45,4 +45,75 @@ class BeerRepository {
             }
         }
     }
+
+    fun getWheatBeers(resBody: MutableLiveData<List<Beer>>) {
+        CoroutineScope(Dispatchers.IO).launch {
+            lateinit var response: Response<BeerPayload>
+
+            response = service.getWheatBeers()
+
+            withContext(Dispatchers.Main) {
+                try {
+                    if (response.isSuccessful) {
+                        resBody.value = response.body()?.products
+                    }
+                } catch (e: HttpException) {
+                    println("Http Error")
+                }
+            }
+        }
+    }
+
+    fun getIPA(resBody: MutableLiveData<List<Beer>>) {
+        CoroutineScope(Dispatchers.IO).launch {
+            lateinit var response: Response<BeerPayload>
+
+            response = service.getIPA()
+
+            withContext(Dispatchers.Main) {
+                try {
+                    if (response.isSuccessful) {
+                        resBody.value = response.body()?.products
+                    }
+                } catch (e: HttpException) {
+                    println("Http Error")
+                }
+            }
+        }
+    }
+    fun getLagers(resBody: MutableLiveData<List<Beer>>) {
+        CoroutineScope(Dispatchers.IO).launch {
+            lateinit var response: Response<BeerPayload>
+
+            response = service.getLagers()
+
+            withContext(Dispatchers.Main) {
+                try {
+                    if (response.isSuccessful) {
+                        resBody.value = response.body()?.products
+                    }
+                } catch (e: HttpException) {
+                    println("Http Error")
+                }
+            }
+        }
+    }
+
+    fun getStouts(resBody: MutableLiveData<List<Beer>>) {
+        CoroutineScope(Dispatchers.IO).launch {
+            lateinit var response: Response<BeerPayload>
+
+            response = service.getStouts()
+
+            withContext(Dispatchers.Main) {
+                try {
+                    if (response.isSuccessful) {
+                        resBody.value = response.body()?.products
+                    }
+                } catch (e: HttpException) {
+                    println("Http Error")
+                }
+            }
+        }
+    }
 }
