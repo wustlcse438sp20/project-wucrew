@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".GetDescription"></activity>
         <activity android:name=".EditRating"></activity>
+        <activity android:name=".AddItemActivity"></activity>
     </application>
 
 </manifest>

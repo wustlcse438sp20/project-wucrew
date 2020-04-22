@@ -7,7 +7,9 @@ data class BeerPayload(
 data class Beer(
     val product_name: String,
     val image_front_url: String,
-    val nutriments: Nutriments
+    val nutriments: Nutriments,
+    val brands : String,
+    val countries: String
 )
 
 data class Nutriments(

@@ -52,6 +52,8 @@ class ExploreFragment: Fragment() {
         descriptionIntent.putExtra("name", beer.product_name)
         descriptionIntent.putExtra("calories", beer.nutriments.energy_value.toString())
         descriptionIntent.putExtra("photo_url", beer.image_front_url)
+        descriptionIntent.putExtra("brand", beer.brands)
+        descriptionIntent.putExtra("countries", beer.countries)
         startActivityForResult(descriptionIntent, 1)
     }
 }
