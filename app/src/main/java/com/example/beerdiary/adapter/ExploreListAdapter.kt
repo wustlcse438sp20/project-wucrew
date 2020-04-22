@@ -12,6 +12,7 @@ class ExploreListViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     private val beerNameView: TextView
     private val beerCalorieView: TextView
 
+
     init {
         beerNameView = itemView.findViewById(R.id.beer_name)
         beerCalorieView = itemView.findViewById(R.id.beer_calorie)
