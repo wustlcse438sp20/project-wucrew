@@ -21,8 +21,17 @@ class ExploreListViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         beerNameView.setOnClickListener {
             clickListener(beer)
         }
-        beerNameView?.text = beer.product_name
-        beerCalorieView?.text = beer.nutriments.energy_value?.toString() + " calories"
+        if (beer.product_name != ""){
+            beerNameView?.text = beer.product_name
+            val calories = beer.nutriments.energy_value?.toString()
+            if (calories == "0.0"){
+                beerCalorieView?.text = "calories unavailable"
+            }
+            else {
+                beerCalorieView?.text = beer.nutriments.energy_value?.toString() + " calories"
+            }
+        }
+
     }
 }
 
