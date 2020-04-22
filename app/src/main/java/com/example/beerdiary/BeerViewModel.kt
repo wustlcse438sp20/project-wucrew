@@ -26,6 +26,10 @@ class BeerViewModel(application: Application) : AndroidViewModel(application) {
     fun getBeer() {
         beerRepository.getBeer(beerList)
     }
+
+    fun getBySearch(param: String) {
+        beerRepository.getBySearch(beerList, param)
+    }
     //function that sends a beer item from AddItemFragment() to CollectionFragment() stored in AppDatabase()
     fun insert(beer: AddBeerItem){
         addBeerRepository.insert(beer)

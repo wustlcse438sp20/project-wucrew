@@ -27,4 +27,22 @@ class BeerRepository {
             }
         }
     }
+
+    fun getBySearch(resBody: MutableLiveData<List<Beer>>, param: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            lateinit var response: Response<BeerPayload>
+
+            response = service.getBySearch(param)
+
+            withContext(Dispatchers.Main) {
+                try {
+                    if (response.isSuccessful) {
+                        resBody.value = response.body()?.products
+                    }
+                } catch (e: HttpException) {
+                    println("Http Error")
+                }
+            }
+        }
+    }
 }

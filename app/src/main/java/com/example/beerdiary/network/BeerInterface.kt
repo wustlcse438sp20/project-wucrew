@@ -12,7 +12,7 @@ interface BeerInterface {
     suspend fun getBeer()
             : Response<BeerPayload>
 
-    @GET("search")
-    suspend fun getBySearch(@Query("q") q: String)
+    @GET("cgi/search.pl?search_simple=1&action=process&json=1&category=beers")
+    suspend fun getBySearch(@Query("search_terms") search_terms: String)
             : Response<BeerPayload>
 }

@@ -13,5 +13,5 @@ data class Beer(
 )
 
 data class Nutriments(
-    val energy_value : Int
+    val energy_value : Float
 )
