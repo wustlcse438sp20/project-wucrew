@@ -27,8 +27,8 @@ class BeerViewModel(application: Application) : AndroidViewModel(application) {
         beerRepository.getBeer(beerList)
     }
 
-    fun getBySearch(param: String) {
-        beerRepository.getBySearch(beerList, param)
+    fun getBySearch(param: String, category: String) {
+        beerRepository.getBySearch(beerList, param, category)
     }
 
     fun getWheatBeers() {

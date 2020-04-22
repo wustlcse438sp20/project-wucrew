@@ -53,8 +53,21 @@ class ExploreFragment: Fragment() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun afterTextChanged(p0: Editable?) {
-                if (p0.toString() != "") {
-                    viewModel.getBySearch(p0.toString())
+                if (p0.toString() != "" && all.isChecked) {
+                    viewModel.getBySearch(p0.toString(), "beers")
+
+                } else if (p0.toString() != "" && wheat.isChecked) {
+                    viewModel.getBySearch(p0.toString(), "wheat-beers")
+
+                } else if (p0.toString() != "" && IPA.isChecked) {
+                    viewModel.getBySearch(p0.toString(), "india-pale-ale")
+
+                } else if (p0.toString() != "" && lager.isChecked) {
+                    viewModel.getBySearch(p0.toString(), "lagers")
+
+                } else if (p0.toString() != "" && stout.isChecked) {
+                    viewModel.getBySearch(p0.toString(), "stout")
+
                 }
             }
             override fun onTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}

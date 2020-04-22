@@ -28,11 +28,11 @@ class BeerRepository {
         }
     }
 
-    fun getBySearch(resBody: MutableLiveData<List<Beer>>, param: String) {
+    fun getBySearch(resBody: MutableLiveData<List<Beer>>, param: String, category: String) {
         CoroutineScope(Dispatchers.IO).launch {
             lateinit var response: Response<BeerPayload>
 
-            response = service.getBySearch(param)
+            response = service.getBySearch(param, category)
 
             withContext(Dispatchers.Main) {
                 try {

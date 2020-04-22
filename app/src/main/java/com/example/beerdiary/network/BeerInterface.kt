@@ -13,8 +13,9 @@ interface BeerInterface {
     suspend fun getBeer()
             : Response<BeerPayload>
 
-    @GET("cgi/search.pl?search_simple=1&action=process&json=1&category=beers&page_size=100")
-    suspend fun getBySearch(@Query("search_terms") search_terms: String)
+    //@GET("cgi/search.pl?search_simple=1&action=process&json=1&category=beers&page_size=100")
+    @GET("cgi/search.pl?search_simple=1&action=process&json=1&page_size=100")
+    suspend fun getBySearch(@Query("search_terms") search_terms: String, @Query("category") category: String)
             : Response<BeerPayload>
 
     @GET("category/wheat-beers.json")
