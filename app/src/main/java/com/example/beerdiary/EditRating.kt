@@ -44,23 +44,23 @@ class EditRating : AppCompatActivity(){
                 edit_m.text = displayBeer?.manufacturer
                 edit_type.text = displayBeer?.type
 
-//                edit_save.setOnClickListener {
-//                    var newBeer = AddBeerItem(edit_name.text.toString(), edit_type.text.toString(), edit_description.text.toString(),
-//                    edit_rBar.rating, edit_m.text.toString(), edit_c.text.toString(), beer!!.quantity)
-//                    if(beer==null){
-//                        beerViewModel.insert(newBeer)
-//                    }else {
-//                        //beerViewModel.delete(beer.id)
-//                        //beerViewModel.insert(newBeer)
-//                        beer.rating = edit_rBar.rating
-//                        beerViewModel.updateItem(beer)
-//                    }
-//
-//                    val toast = Toast.makeText(this, "Changes saved", Toast.LENGTH_SHORT)
-//                    toast.show()
-//                    val saveIntent = Intent(this, MainActivity::class.java)
-//                    startActivity(saveIntent)
-//                }
+                edit_save.setOnClickListener {
+                    var newBeer = AddBeerItem(edit_name.text.toString(), edit_type.text.toString(), edit_description.text.toString(),
+                    edit_rBar.rating, edit_m.text.toString(), edit_c.text.toString(), displayBeer!!.quantity)
+                    if(beer==null){
+                        beerViewModel.insert(newBeer)
+                    }else {
+                        //beerViewModel.delete(beer.id)
+                        //beerViewModel.insert(newBeer)
+                        displayBeer?.rating = edit_rBar.rating
+                        beerViewModel.updateItem(displayBeer!!)
+                    }
+
+                    val toast = Toast.makeText(this, "Changes saved", Toast.LENGTH_SHORT)
+                    toast.show()
+                    val saveIntent = Intent(this, MainActivity::class.java)
+                    startActivity(saveIntent)
+                }
 
                 edit_cancel.setOnClickListener {
                     val cancelIntent = Intent(this, MainActivity::class.java)
