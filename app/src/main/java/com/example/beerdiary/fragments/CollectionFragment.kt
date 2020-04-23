@@ -93,6 +93,7 @@ class CollectionFragment: Fragment(){
         intent.putExtra("rating",beer.rating)
         intent.putExtra("manufacturer",beer.manufacturer)
         intent.putExtra("country",beer.country)
+        intent.putExtra("photo_url", beer.url)
         startActivity(intent)
     }
 }

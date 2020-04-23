@@ -19,7 +19,9 @@ data class AddBeerItem(
     @ColumnInfo(name = "country")
     val country : String,
     @ColumnInfo(name = "quantity")
-    var quantity : Int
+    var quantity : Int,
+    @ColumnInfo(name = "url")
+    var url: String
 ){
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

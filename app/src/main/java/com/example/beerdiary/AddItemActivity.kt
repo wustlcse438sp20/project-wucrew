@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.beerdiary.db.AddBeerItem
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_additem.*
 
 class AddItemActivity : AppCompatActivity() {
@@ -39,10 +40,11 @@ class AddItemActivity : AppCompatActivity() {
             val toast = Toast.makeText(this, "Required fields missing", Toast.LENGTH_LONG)
             toast.show()
         } else{
+            val photoURL = if (intent.getStringExtra("photo_url") == null) "null" else intent.getStringExtra("photo_url")
             //params: AddBeerItem(name: String, type: String, desc: String,
             //rating: Float, manufacturer: String, country: String)
             val b = AddBeerItem(name_input.text.toString(), type_input.text.toString(), description_input.text.toString(),
-                rating, manufacturer_input.text.toString(), country_input.text.toString(), 1)
+                rating, manufacturer_input.text.toString(), country_input.text.toString(), 1, photoURL)
 
 
             beerViewModel.insert(b)

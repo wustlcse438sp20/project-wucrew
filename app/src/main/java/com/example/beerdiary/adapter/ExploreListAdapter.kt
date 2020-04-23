@@ -11,7 +11,7 @@ import com.example.beerdiary.data.Beer
 import com.squareup.picasso.Picasso
 
 class ExploreListViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
-        RecyclerView.ViewHolder(inflater.inflate(R.layout.explore_item, parent, false)) {
+    RecyclerView.ViewHolder(inflater.inflate(R.layout.explore_item, parent, false)) {
     private val beerNameView: TextView
     private val beerCalorieView: TextView
     private val beerImageView: ImageView
@@ -27,27 +27,24 @@ class ExploreListViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         beerImageView.setOnClickListener {
             clickListener(beer)
         }
-        if (beer.product_name != ""){
-            beerNameView?.text = beer.product_name
-            val calories = beer.nutriments.energy_value?.toString()
-            if (calories == "0.0"){
-                beerCalorieView?.text = "calories unavailable"
-            }
-            else {
-                beerCalorieView?.text = beer.nutriments.energy_value?.toString() + " calories"
-            }
-            if (beer.image_front_url == null) {
-                Picasso.get().load(R.drawable.beer_clipart).into(beerImageView)
-            } else {
-                Picasso.get().load(beer.image_front_url).into(beerImageView)
-            }
+        beerNameView?.text = beer.product_name
+        val calories = beer.nutriments.energy_value?.toString()
+        if (calories == "0.0") {
+            beerCalorieView?.text = "calories unavailable"
+        } else {
+            beerCalorieView?.text = beer.nutriments.energy_value?.toString() + " calories"
+        }
+        if (beer.image_front_url == null) {
+            Picasso.get().load(R.drawable.beer_clipart).into(beerImageView)
+        } else {
+            Picasso.get().load(beer.image_front_url).into(beerImageView)
         }
 
     }
 }
 
-class ExploreListAdapter(private val list: ArrayList<Beer>, val clickListener: (Beer) -> Unit)
-    : RecyclerView.Adapter<ExploreListViewHolder>() {
+class ExploreListAdapter(private val list: ArrayList<Beer>, val clickListener: (Beer) -> Unit) :
+    RecyclerView.Adapter<ExploreListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExploreListViewHolder {
         val inflater = LayoutInflater.from(parent.context)
