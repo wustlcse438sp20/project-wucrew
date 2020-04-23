@@ -13,6 +13,7 @@ import com.example.beerdiary.network.BeerRepository
 class BeerViewModel(application: Application) : AndroidViewModel(application) {
     var beerList: MutableLiveData<List<Beer>> = MutableLiveData()   //for api
     var addBeerList: LiveData<List<AddBeerItem>> = MutableLiveData() //for database
+    var beerData: LiveData<List<AddBeerItem>> = MutableLiveData()
 
     private val beerRepository: BeerRepository = BeerRepository() //-> this is the api repository
 
@@ -50,9 +51,11 @@ class BeerViewModel(application: Application) : AndroidViewModel(application) {
     fun insert(beer: AddBeerItem){
         addBeerRepository.insert(beer)
     }
-    fun search(id: Int): AddBeerItem?{
-        var beer: AddBeerItem? = addBeerRepository.search(id)
-        return beer
+    fun search(id: Int){
+        beerData = addBeerRepository.search(id)
+        println("viewmodel here================================")
+        println("beer data -------------------------------------")
+        println(beerData.value?.toString())
     }
     fun delete(id: Int) {
         addBeerRepository.delete(id)

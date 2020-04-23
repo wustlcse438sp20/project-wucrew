@@ -4,15 +4,22 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.beerdiary.db.AddBeerItem
 import kotlinx.android.synthetic.main.activity_editrating.*
 import java.lang.Exception
 
 class EditRating : AppCompatActivity(){
+    lateinit var beerViewModel: BeerViewModel
+    var beer: LiveData<List<AddBeerItem>> = MutableLiveData()
+    var displayBeer: AddBeerItem? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editrating)
+        beerViewModel = ViewModelProvider(this).get(com.example.beerdiary.BeerViewModel::class.java)
     }
 
     override fun onStart() {
@@ -20,45 +27,50 @@ class EditRating : AppCompatActivity(){
         val intent = getIntent()
         val id = intent.getIntExtra("id", 0)
 
-        val beerViewModel: BeerViewModel = ViewModelProvider(this).get(BeerViewModel::class.java)
-        var beer: AddBeerItem? = null
-        try {
-            beer = beerViewModel.search(id)
-        } catch (e: Exception){
-            val toast = Toast.makeText(this, "Error: search failed", Toast.LENGTH_SHORT)
-            toast.show()
-        }
 
-        if(beer?.name!=null){
-            edit_name.text = beer.name
-            edit_rBar.rating = beer.rating
-            edit_c.text = beer.country
-            edit_m.text = beer.manufacturer
-            edit_type.text = beer.type
-        } else{
-            val toast = Toast.makeText(this, "Error: failed to load data", Toast.LENGTH_SHORT)
-            toast.show()
-        }
-        edit_save.setOnClickListener {
-            var newBeer = AddBeerItem(edit_name.text.toString(), edit_type.text.toString(), edit_description.text.toString(),
-                edit_rBar.rating, edit_m.text.toString(), edit_c.text.toString(), beer!!.quantity)
-            if(beer==null){
-                beerViewModel.insert(newBeer)
-            }else{
-                //beerViewModel.delete(beer.id)
-                //beerViewModel.insert(newBeer)
-                beer.rating = edit_rBar.rating
-                beerViewModel.updateItem(beer)
-            }
+        beerViewModel.search(id)
 
-            val toast = Toast.makeText(this, "Changes saved", Toast.LENGTH_SHORT)
-            toast.show()
-            val saveIntent = Intent(this, MainActivity::class.java)
-            startActivity(saveIntent)
-        }
-        edit_cancel.setOnClickListener {
-            val cancelIntent = Intent(this, MainActivity::class.java)
-            startActivity(cancelIntent)
-        }
+        beerViewModel.beerData.observe(
+            this,
+            Observer { beerData: List<AddBeerItem>? -> kotlin.run{
+                displayBeer = beerData?.get(0)
+                println("asdgasdgasdgasdgadsgadgasdg")
+                println(beerData?.size.toString())
+                edit_name.text = displayBeer?.name
+                edit_description.text = displayBeer?.description
+                edit_type.text = displayBeer?.type
+                edit_rBar.rating = displayBeer!!.rating
+                edit_c.text = displayBeer?.country
+                edit_m.text = displayBeer?.manufacturer
+                edit_type.text = displayBeer?.type
+
+//                edit_save.setOnClickListener {
+//                    var newBeer = AddBeerItem(edit_name.text.toString(), edit_type.text.toString(), edit_description.text.toString(),
+//                    edit_rBar.rating, edit_m.text.toString(), edit_c.text.toString(), beer!!.quantity)
+//                    if(beer==null){
+//                        beerViewModel.insert(newBeer)
+//                    }else {
+//                        //beerViewModel.delete(beer.id)
+//                        //beerViewModel.insert(newBeer)
+//                        beer.rating = edit_rBar.rating
+//                        beerViewModel.updateItem(beer)
+//                    }
+//
+//                    val toast = Toast.makeText(this, "Changes saved", Toast.LENGTH_SHORT)
+//                    toast.show()
+//                    val saveIntent = Intent(this, MainActivity::class.java)
+//                    startActivity(saveIntent)
+//                }
+
+                edit_cancel.setOnClickListener {
+                    val cancelIntent = Intent(this, MainActivity::class.java)
+                    startActivity(cancelIntent)
+                }
+            }}
+        )
+
+        beerViewModel.search(id)
+
+
     }
 }

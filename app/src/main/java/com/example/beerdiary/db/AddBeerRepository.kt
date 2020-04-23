@@ -1,24 +1,35 @@
 package com.example.beerdiary.db
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Thread.sleep
 
 class AddBeerRepository(private val addBeerDao: AddBeerItemDao) {
     val allBeers: LiveData<List<AddBeerItem>> = addBeerDao.getBeers()
+    val beerData: LiveData<List<AddBeerItem>> = MutableLiveData()
 
     fun insert(beer: AddBeerItem) {
         CoroutineScope(Dispatchers.IO).launch {
             addBeerDao.insert(beer)
         }
     }
-    fun search(id: Int): AddBeerItem? {
-        lateinit var beer: AddBeerItem
-        CoroutineScope(Dispatchers.IO).launch {
-            beer = addBeerDao.search(id)
-        }
-        return beer
+    fun search(id: Int): LiveData<List<AddBeerItem>> {
+        println("repository here================================")
+        println(id.toString())
+        println(addBeerDao.search(id).value.toString())
+        var beer: AddBeerItem? = null
+//        CoroutineScope(Dispatchers.IO).launch {
+//            beer = addBeerDao.search(id)
+//            withContext(Dispatchers.Main){
+//                beerData.value = beer
+//            }
+//        }
+
+        return addBeerDao.search(id)
     }
     fun delete(id: Int) {
         CoroutineScope(Dispatchers.IO).launch {

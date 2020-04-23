@@ -14,7 +14,7 @@ interface AddBeerItemDao {
     fun getBeers(): LiveData<List<AddBeerItem>>
 
     @Query("SELECT * FROM beers WHERE beers.id = :id")
-    fun search(id: Int): AddBeerItem
+    fun search(id: Int): LiveData<List<AddBeerItem>>
 
     @Insert
     fun insert(beer: AddBeerItem)

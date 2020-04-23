@@ -87,6 +87,12 @@ class CollectionFragment: Fragment(){
     private fun beerItemClicked(beer: AddBeerItem) {
         val intent = Intent(this.context, EditRating::class.java)
         intent.putExtra("id",beer.id)
+        intent.putExtra("name",beer.name)
+        intent.putExtra("type",beer.type)
+        intent.putExtra("description",beer.description)
+        intent.putExtra("rating",beer.rating)
+        intent.putExtra("manufacturer",beer.manufacturer)
+        intent.putExtra("country",beer.country)
         startActivity(intent)
     }
 }
