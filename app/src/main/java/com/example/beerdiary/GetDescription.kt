@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.beerdiary.fragments.AddItemFragment
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.beer_detail.*
+import kotlinx.android.synthetic.main.explore_item.*
 
 class GetDescription : AppCompatActivity() {
 
@@ -28,7 +29,14 @@ class GetDescription : AppCompatActivity() {
 
         name.text = intent.getStringExtra("name")
         calories.text = intent.getStringExtra("calories")
-        Picasso.get().load(intent.getStringExtra("photo_url")).into(photo)
+        if (intent.getStringExtra("photo_url") == null) {
+            Picasso.get().load(R.drawable.beer_clipart).into(photo)
+            println(intent.getStringExtra("photo_url") + " is the photo url")
+        } else {
+            Picasso.get().load(intent.getStringExtra("photo_url")).into(photo)
+            println(intent.getStringExtra("photo_url") + " is the photo url")
+
+        }
         manufacturer.text = intent.getStringExtra("brand")
         country.text = intent.getStringExtra("countries")
 

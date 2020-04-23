@@ -5,6 +5,11 @@
     android:layout_marginBottom="20dp"
     android:layout_marginLeft="10dp">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/beer_image"/>
+
     <TextView
         android:id="@+id/beer_name"
         android:layout_width="wrap_content"
@@ -16,5 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"/>
+
 
 </LinearLayout>

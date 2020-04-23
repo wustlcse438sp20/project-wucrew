@@ -11,6 +11,7 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.beerdiary.BeerViewModel
 import com.example.beerdiary.GetDescription
@@ -38,7 +39,7 @@ class ExploreFragment: Fragment() {
 
         val adapter = ExploreListAdapter(beerList as ArrayList<Beer>, {beerItem : Beer -> beerItemClicked(beerItem)})
         explore_recycler.adapter = adapter
-        explore_recycler.layoutManager = LinearLayoutManager(this.context)
+        explore_recycler.layoutManager = GridLayoutManager(this.context, 2)
 
         viewModel!!.beerList.observe(this, Observer { Beer ->
             beerList.clear()
