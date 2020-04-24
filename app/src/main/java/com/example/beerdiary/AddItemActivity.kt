@@ -27,8 +27,6 @@ class AddItemActivity : AppCompatActivity() {
         val intent : Intent = getIntent()
 
         name_input.setText(intent.getStringExtra("name"))
-        //calories.text = intent.getStringExtra("calories")
-        //Picasso.get().load(intent.getStringExtra("photo_url")).into(photo)
         manufacturer_input.setText(intent.getStringExtra("brand"))
         country_input.setText(intent.getStringExtra("countries"))
     }
@@ -41,8 +39,6 @@ class AddItemActivity : AppCompatActivity() {
             toast.show()
         } else{
             val photoURL = if (intent.getStringExtra("photo_url") == null) "null" else intent.getStringExtra("photo_url")
-            //params: AddBeerItem(name: String, type: String, desc: String,
-            //rating: Float, manufacturer: String, country: String)
             val b = AddBeerItem(name_input.text.toString(), type_input.text.toString(), description_input.text.toString(),
                 rating, manufacturer_input.text.toString(), country_input.text.toString(), 1, photoURL)
 

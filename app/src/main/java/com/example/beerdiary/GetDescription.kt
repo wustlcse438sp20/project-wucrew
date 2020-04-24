@@ -60,12 +60,4 @@ class GetDescription : AppCompatActivity() {
     }
 
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if (requestCode == ADD_BEER_REQUEST) {
-//            if (resultCode == Activity.RESULT_OK){
-//
-//            }
-//        }
-//    }
 }

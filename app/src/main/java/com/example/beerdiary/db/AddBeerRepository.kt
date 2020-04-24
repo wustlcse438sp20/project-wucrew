@@ -18,16 +18,7 @@ class AddBeerRepository(private val addBeerDao: AddBeerItemDao) {
         }
     }
     fun search(id: Int): LiveData<List<AddBeerItem>> {
-        println("repository here================================")
-        println(id.toString())
         println(addBeerDao.search(id).value.toString())
-        var beer: AddBeerItem? = null
-//        CoroutineScope(Dispatchers.IO).launch {
-//            beer = addBeerDao.search(id)
-//            withContext(Dispatchers.Main){
-//                beerData.value = beer
-//            }
-//        }
 
         return addBeerDao.search(id)
     }
@@ -42,21 +33,12 @@ class AddBeerRepository(private val addBeerDao: AddBeerItemDao) {
         }
     }
     fun sortNameAsc(): LiveData<List<AddBeerItem>> {
-//        CoroutineScope(Dispatchers.IO).launch {
-//            addBeerDao.sortNameAsc()
-//        }
         return addBeerDao.sortNameAsc()
     }
     fun sortRatingAsc(): LiveData<List<AddBeerItem>> {
-//        CoroutineScope(Dispatchers.IO).launch {
-//            addBeerDao.sortRatingAsc()
-//        }
         return addBeerDao.sortRatingAsc()
     }
     fun sortRatingDesc(): LiveData<List<AddBeerItem>> {
-//        CoroutineScope(Dispatchers.IO).launch {
-//            addBeerDao.sortRatingDesc()
-//        }
         return addBeerDao.sortRatingDesc()
     }
     fun updateItem(beer: AddBeerItem){
