@@ -41,7 +41,6 @@ class EditRating : AppCompatActivity(){
             this,
             Observer { beerData: List<AddBeerItem>? -> kotlin.run{
                 displayBeer = beerData?.get(0)
-                println("asdgasdgasdgasdgadsgadgasdg")
                 println(beerData?.size.toString())
                 edit_name.text = displayBeer?.name
                 edit_description.text = displayBeer?.description
@@ -57,8 +56,6 @@ class EditRating : AppCompatActivity(){
                     if(beer==null){
                         beerViewModel.insert(newBeer)
                     }else {
-                        //beerViewModel.delete(beer.id)
-                        //beerViewModel.insert(newBeer)
                         displayBeer?.rating = edit_rBar.rating
                         beerViewModel.updateItem(displayBeer!!)
                     }
@@ -75,9 +72,6 @@ class EditRating : AppCompatActivity(){
                 }
             }}
         )
-
         beerViewModel.search(id)
-
-
     }
 }

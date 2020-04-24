@@ -53,9 +53,6 @@ class BeerViewModel(application: Application) : AndroidViewModel(application) {
     }
     fun search(id: Int){
         beerData = addBeerRepository.search(id)
-        println("viewmodel here================================")
-        println("beer data -------------------------------------")
-        println(beerData.value?.toString())
     }
     fun delete(id: Int) {
         addBeerRepository.delete(id)

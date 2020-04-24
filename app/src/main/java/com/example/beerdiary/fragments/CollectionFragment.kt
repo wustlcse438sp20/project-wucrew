@@ -50,20 +50,13 @@ class CollectionFragment: Fragment(){
         radiogroup.setOnCheckedChangeListener { radioGroup, id ->
             when(id){
                 name_sort.id -> {
-//
-//                    beerViewModel.sortNameAsc()
-//                    //adapter.notifyDataSetChanged()
-                    println("name sort")
-
                     beerViewModel.sortNameAsc().observe(this, Observer { beer ->
                         addBeerList.clear()
                         addBeerList.addAll(beer)
                         adapter.notifyDataSetChanged()
                     })
                 }
-                high_sort.id -> {//beerViewModel.sortRatingAsc()
-                    //adapter.notifyDataSetChanged()
-                    println("high sort")
+                high_sort.id -> {
                     beerViewModel.sortRatingAsc().observe(this, Observer { beer ->
                         addBeerList.clear()
                         addBeerList.addAll(beer)
@@ -72,9 +65,6 @@ class CollectionFragment: Fragment(){
 
                 }
                 low_sort.id -> {
-                    //beerViewModel.sortRatingDesc()
-                    //adapter.notifyDataSetChanged()
-                    println("low sort")
                     beerViewModel.sortRatingDesc().observe(this, Observer { beer ->
                         addBeerList.clear()
                         addBeerList.addAll(beer)

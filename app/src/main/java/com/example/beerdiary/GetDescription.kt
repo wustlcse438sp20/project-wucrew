@@ -24,7 +24,6 @@ class GetDescription : AppCompatActivity() {
             addClicked()
         }
 
-
         val intent : Intent = getIntent()
 
         name.text = intent.getStringExtra("name")
